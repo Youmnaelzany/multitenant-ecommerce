@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -5,6 +9,10 @@ import { Progress } from "@/components/ui/progress";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function Home() {
+  useEffect(() => {
+    console.log("rendered");
+  }, []);
+
   return (
     <main className="flex flex-col gap-y-4">
       <div className="">
