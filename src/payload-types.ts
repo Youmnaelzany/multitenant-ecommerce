@@ -13,8 +13,9 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
-    'payload-preferences': PayloadPreference;
-    'payload-migrations': PayloadMigration;
+    categories: Categories;
+    "payload-preferences": PayloadPreference;
+    "payload-migrations": PayloadMigration;
   };
   db: {
     defaultIDType: string;
@@ -22,7 +23,7 @@ export interface Config {
   globals: {};
   locale: null;
   user: User & {
-    collection: 'users';
+    collection: "users";
   };
 }
 export interface UserAuthOperations {
@@ -79,6 +80,29 @@ export interface Media {
   focalX?: number | null;
   focalY?: number | null;
 }
+
+export interface Categories {
+  id: string;
+  updatedAt: string;
+  createdAt: string;
+  name: string;
+  slug?: string | null;
+  description?: string | null;
+  image?: Media | null;
+  parent?: Categories | null;
+  children?: Categories[] | null;
+  ancestors?: Categories[] | null;
+  descendants?: Categories[] | null;
+  depth?: number | null;
+  path?: string | null;
+  isRoot?: boolean | null;
+  isLeaf?: boolean | null;
+  isPublished?: boolean | null;
+  isArchived?: boolean | null;
+  isDraft?: boolean | null;
+  isDeleted?: boolean | null;
+}
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
@@ -86,7 +110,7 @@ export interface Media {
 export interface PayloadPreference {
   id: string;
   user: {
-    relationTo: 'users';
+    relationTo: "users";
     value: string | User;
   };
   key?: string | null;
@@ -121,7 +145,6 @@ export interface Auth {
   [k: string]: unknown;
 }
 
-
-declare module 'payload' {
+declare module "payload" {
   export interface GeneratedTypes extends Config {}
 }

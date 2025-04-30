@@ -7,7 +7,7 @@ export const GET = async () => {
   });
 
   const data = await payload.find({
-    collection: "users",
+    collection: "categories", // Explicitly cast to the correct type
   });
 
   return Response.json(data);
