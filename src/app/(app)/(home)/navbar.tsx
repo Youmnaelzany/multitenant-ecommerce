@@ -47,7 +47,7 @@ export const Navbar = () => {
   const pathname = usePathname();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   return (
-    <nav className="flex h-20 justify-between border-b bg-white font-medium">
+    <nav className="flex h-20 justify-between border-b bg-white p-4 font-medium">
       <Link href={"/"} className="flex items-center pl-6">
         <span className={cn("text-5xl font-semibold", poppins.className)}>
           funroad
@@ -71,11 +71,12 @@ export const Navbar = () => {
           </NavbarItems>
         ))}
       </div>
-      <div className="hidden items-center gap-x-3 lg:flex">
+
+      <div className="hidden items-center gap-x-3 border-l-2 px-4 lg:flex">
         <Button className="" variant={"neutral"} size={"lg"} asChild>
           <Link href="/sign-in">Log In</Link>
         </Button>
-        <Button variant={"special"} size={"lg"} asChild>
+        <Button variant={"neutral"} size={"lg"} asChild>
           <Link href="/sign-up">Start Selling</Link>
         </Button>
       </div>
